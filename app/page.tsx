@@ -1,9 +1,16 @@
+'use client';
+import { useEffect } from "react";
 import EventCard from "@/components/EventCard";
 import ExploreBtn from "@/components/ExploreBtn";
 import events from "@/lib/constants";
+import posthog from "posthog-js";
 
 
 const Home = () => {
+  useEffect(() => {
+    posthog.capture('home_page_viewed');
+  }, []);
+
   return (
     <section>
       <h1 className="text-center">
